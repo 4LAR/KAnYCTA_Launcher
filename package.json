@@ -1,0 +1,58 @@
+{
+  "name": "KAnYCTA_Launcher",
+  "version": "0.1.0",
+  "description": "Game launcher",
+  "main": "main.js",
+  "author": "100LAR STUDIO <nikitstolarov@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.6.2",
+    "electron-builder": "^24.9.1",
+    "electron-reloader": "^1.2.3"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.6",
+    "electron-is-packaged": "^1.0.2",
+    "electron-store": "^8.1.0",
+    "electron-window-state": "^5.0.3"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "asar": true,
+    "files": [
+      "static/",
+      "index.html",
+      "logo.svg",
+      "logo.png",
+      "logo.ico",
+      "main.js",
+      "preload.js"
+    ],
+    "appId": "KAnYCTA Launcher",
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "logo.ico"
+    },
+    "linux": {
+      "target": [
+        "snap",
+        "deb"
+      ],
+      "category": "Game",
+      "icon": "logo.svg"
+    },
+    "portable": {
+      "unicode": false,
+      "artifactName": "${productName}-${version}-PORTABLE.${ext}"
+    },
+    "nsis": {
+      "artifactName": "${productName}-${version}-INSTALLER.${ext}"
+    }
+  }
+}
